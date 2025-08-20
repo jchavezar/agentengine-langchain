@@ -1,0 +1,23 @@
+steps:
+  # --- Step 1: Parallel Docker Builds ---
+  # Build reporter agent
+  - id: 'build-reporter-client'
+    name: 'gcr.io/cloud-builders/docker'
+    waitFor: ["-"]
+    args:
+      - 'build'
+      - '-t'
+      - '${_REGION}-docker.pkg.dev/${_PROJECT_ID}/${_REPO_NAME}/reporter-agent:${_IMAGE_TAG}'
+      - '-f'
+      - './${_AGENT_NAME}/Dockerfile'
+      - '.'
+
+  # --- Step 2: Parallel Docker Pushes ---
+  - id: 'push-reporter-client'
+    name: 'gcr.io/cloud-builders/docker'
+    waitFor: ['build-reporter-client']
+    args:
+      - 'push'
+      - '${_REGION}-docker.pkg.dev/${_PROJECT_ID}/${_REPO_NAME}/reporter-agent:${_IMAGE_TAG}'
+
+
