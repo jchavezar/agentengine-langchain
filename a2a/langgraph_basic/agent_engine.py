@@ -4,8 +4,8 @@ import json
 import os
 from dotenv import load_dotenv
 from vertexai import agent_engines
-
 load_dotenv(verbose=True)
+
 tavily_key = os.getenv("TAVILY_API_KEY")
 print(tavily_key)
 
@@ -156,9 +156,7 @@ agent = AgentEngine(
 agent.set_up()
 
 
-#%
-
-
+#%%
 # Deploying the Agent
 
 _remote_engine = [agent for agent in agent_engines.list(filter='display_name="langgraph-lab-agent"')]
