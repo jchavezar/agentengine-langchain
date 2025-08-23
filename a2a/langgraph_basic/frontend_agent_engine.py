@@ -1,15 +1,12 @@
 # %%
-import asyncio
 import json
-
 import flet as ft
 from vertexai import agent_engines
 
 # Correcting Flet UI errors
 
-agent_engines = [i for i in agent_engines.list()]
-ra = agent_engines[0]
-
+_remote_engine = [agent for agent in agent_engines.list(filter='display_name="langgraph-lab-agent"')]
+ra = _remote_engine[0]
 
 async def query_remote_agent_flet(
     input_text: str, page: ft.Page, chat_history_column: ft.Column, status_text: ft.Text

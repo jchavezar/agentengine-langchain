@@ -177,8 +177,8 @@ if len(_remote_engine) > 0:
             "langchain-core==0.3.74",
             "langchain==0.3.27",
             "openinference-instrumentation-langchain==0.1.34",
-            "opentelemetry-exporter-gcp-trace"
-            # "opentelemetry-instrumentation-langchain==0.38.10",
+            "opentelemetry-exporter-gcp-trace",
+            "google-cloud-discoveryengine"
         ],
         min_instances=1,
         max_instances=10,
@@ -186,6 +186,7 @@ if len(_remote_engine) > 0:
         container_concurrency=9,
         env_vars={
             "TAVILY_API_KEY": os.getenv("TAVILY_API_KEY"),
+            "DISCOVERY_ENGINE_ID": os.getenv("DISCOVERY_ENGINE_ID"),
         }
     )
     print(f"Agent '{remote_agent.display_name}' updated successfully: {remote_agent.resource_name}")
@@ -204,8 +205,8 @@ else:
             "langchain-core==0.3.74",
             "langchain==0.3.27",
             "openinference-instrumentation-langchain==0.1.34",
-            "opentelemetry-exporter-gcp-trace"
-            # "opentelemetry-instrumentation-langchain==0.38.10",
+            "opentelemetry-exporter-gcp-trace",
+            "google-cloud-discoveryengine"
         ],
         min_instances=1,
         max_instances=10,
@@ -213,6 +214,7 @@ else:
         container_concurrency=9,
         env_vars={
             "TAVILY_API_KEY": tavily_key,
+            "DISCOVERY_ENGINE_ID": os.getenv("DISCOVERY_ENGINE_ID"),
         }
     )
 
