@@ -206,8 +206,5 @@ output_path = "langgraph_diagram.png"
 image.save(output_path)
 print(f"Graph saved to {output_path}. You can open this file to view the diagram.")
 
-
-stream_graph_updates(input())
-
-#%%
-stream_graph_updates(input())
+stream_graph_updates("what are the latest tech news?")
+stream_graph_updates("what was the latest alphabet revenue according to your records?")
