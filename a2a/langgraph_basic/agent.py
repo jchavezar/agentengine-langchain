@@ -127,11 +127,11 @@ def route_decision(state: State):
     elif state["decision"] == "finance_related":
         return "rag_bot"
 
+graph_builder.add_node("llm_call_router", llm_call_router)
 graph_builder.add_node("chatbot", chatbot)
 graph_builder.add_node("tavily_tool_executor", tavily_tool_executor_node)
 graph_builder.add_node("rag_bot", rag_bot)
 graph_builder.add_node("rag_tool_executor", rag_tool_executor_node)
-graph_builder.add_node("llm_call_router", llm_call_router)
 
 def stream_graph_updates(user_input: str):
     for event in graph.stream({"messages": [HumanMessage(content=user_input)]}):
@@ -172,8 +172,8 @@ graph_builder.add_conditional_edges(
     "llm_call_router",
     route_decision,
     {
-        "chatbot": "chatbot",  # Corrected keys to match route_decision's return values
-        "rag_bot": "rag_bot"    # Corrected keys to match route_decision's return values
+        "chatbot": "chatbot",
+        "rag_bot": "rag_bot"
     }
 )
 
