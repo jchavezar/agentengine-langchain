@@ -52,7 +52,7 @@ Agent Engine.
 
 Once deployed or updated, the output should look like this:
 
-![img_1.png](screenshot_2.png)
+![img_1.png](langgraph_basic/screenshot_2.png)
 
 Next step is to plug the Agent Engine into a Custom UI:
 
@@ -62,4 +62,4 @@ flet run frontend_agent_engine.py
 
 [frontend_agent_engine.py](langgraph_basic/frontend_agent_engine.py)
 
-![img_2.png](screenshot_3.png)
+![img_2.png](langgraph_basic/screenshot_3.png)
