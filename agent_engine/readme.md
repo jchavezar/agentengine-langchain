@@ -41,13 +41,13 @@ or use ADC (Application Default Credentials) in your local PC.
 
 Something like this is returned:
 
-![img.png](screenshot_1.png)
+![img.png](langgraph_basic/screenshot_1.png)
 
 ### Deploy the Tested Model in Agent Engine
 
 _We are adding open telemetry package to traceability._
 
-[agent_engine.py](agent_engine.py), takes the agent tested before and wrap it in a Custom Class so it can be deployed in
+[agent_engine.py](langgraph_basic/agent_engine.py), takes the agent tested before and wrap it in a Custom Class so it can be deployed in
 Agent Engine.
 
 Once deployed or updated, the output should look like this:
@@ -60,6 +60,6 @@ Next step is to plug the Agent Engine into a Custom UI:
 flet run frontend_agent_engine.py
 ```
 
-[frontend_agent_engine.py](frontend_agent_engine.py)
+[frontend_agent_engine.py](langgraph_basic/frontend_agent_engine.py)
 
 ![img_2.png](screenshot_3.png)
